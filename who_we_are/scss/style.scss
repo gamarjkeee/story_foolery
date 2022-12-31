@@ -1,0 +1,673 @@
+// ==============================================
+
+@import "_null";
+
+// ==============================================
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Bubblegum+Sans:regular&display=swap");
+
+// ==============================================
+
+html,
+body {
+  min-width: 320px;
+}
+
+// ==============================================
+
+body {
+  height: 100%;
+  font-family: "Poppins";
+  color: #fff;
+}
+
+// ==============================================
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  > main {
+    flex: 1 1 auto;
+  }
+  > * {
+    min-width: 0;
+  }
+}
+
+// ==============================================
+
+[class*="_container"] {
+  @media (min-width: 3840px) {
+    max-width: 1760px;
+  }
+  @media (max-width: 3839.98px) and (min-width: 1920px) {
+    max-width: clamp(55rem, -0.001rem + 45.83vw, 110rem);
+  }
+  @media (max-width: 1919.98px) and (min-width: 992px) {
+    max-width: clamp(50rem, 44.655rem + 8.62vw, 55rem);
+  }
+  @media (max-width: 991.98px) and (min-width: 768px) {
+    max-width: clamp(46.125rem, 32.838rem + 27.68vw, 50rem);
+  }
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// ==============================================
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.page {
+  opacity: 0;
+  .loaded & {
+    opacity: 1;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-position: top center;
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background-image: url("../img/back-smoke-up.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: 5;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background-image: url("../img/back-smoke-down.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    @media (max-width: 991.98px) {
+      background-size: cover;
+    }
+    &__logo {
+      animation: logo 1s ease forwards 1s;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      display: block;
+      position: absolute;
+      z-index: 8;
+      top: 0;
+      left: 0;
+      @media (min-width: 3840px) {
+        width: 654px;
+        height: 476px;
+      }
+      @media (max-width: 3839.98px) and (min-width: 1920px) {
+        width: clamp(20.438rem, 17.03vw, 40.875rem);
+        height: clamp(14.875rem, 12.4vw, 29.75rem);
+      }
+      @media (max-width: 1919.98px) and (min-width: 992px) {
+        width: clamp(12.5rem, 4.015rem + 13.69vw, 20.438rem);
+        height: clamp(9.098rem, 2.921rem + 9.96vw, 14.875rem);
+      }
+      @media (max-width: 991.98px) and (min-width: 768px) {
+        left: 50%;
+        transform: translateX(-50%);
+        width: clamp(9.375rem, -1.34rem + 22.32vw, 12.5rem);
+        height: clamp(6.823rem, -0.975rem + 16.25vw, 9.098rem);
+      }
+      @media (max-width: 767.98px) {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px;
+        height: 109.17px;
+      }
+      & img {
+        max-width: 100%;
+      }
+    }
+    &__container {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      position: relative;
+    }
+    &__title {
+      opacity: 0;
+      visibility: hidden;
+      animation: title 2s ease forwards 4s;
+      font-family: "Bubblegum Sans";
+      line-height: 1.5;
+      text-align: center;
+      padding-top: 28px;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+      @media (min-width: 3840px) {
+        font-size: 220px;
+        padding-top: 56px;
+      }
+      @media (max-width: 3839.98px) and (min-width: 1920px) {
+        font-size: clamp(6.875rem, 5.73vw, 13.75rem);
+        padding-top: clamp(1.75rem, 1.46vw, 3.5rem);
+      }
+      @media (max-width: 1919.98px) and (min-width: 992px) {
+        font-size: clamp(6.25rem, 5.582rem + 1.08vw, 6.875rem);
+        padding-top: 28px;
+      }
+      @media (max-width: 991.98px) and (min-width: 320px) {
+        font-size: clamp(3.5rem, 2.19rem + 6.55vw, 6.25rem);
+        padding-top: 50px;
+      }
+    }
+    &__main-block {
+      flex: 1 1 auto;
+    }
+    &__buttons {
+      position: absolute;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      row-gap: 10px;
+      bottom: 0;
+      left: 0;
+      padding-left: 15px;
+      padding-right: 15px;
+      @media (max-width: 499.98px) and (min-width: 320px) {
+        flex-direction: column;
+        padding-left: clamp(0.313rem, -5.799rem + 30.56vw, 3.75rem);
+        padding-right: clamp(0.313rem, -5.799rem + 30.56vw, 3.75rem);
+      }
+      @media (min-width: 3840px) {
+        column-gap: 160px;
+        padding-bottom: 130px;
+      }
+      @media (max-width: 3839.98px) and (min-width: 1920px) {
+        column-gap: clamp(5rem, 4.17vw, 10rem);
+        padding-bottom: clamp(4.063rem, 3.39vw, 8.125rem);
+      }
+      @media (max-width: 1919.98px) and (min-width: 992px) {
+        column-gap: clamp(4.545rem, 4.059rem + 0.78vw, 5rem);
+        padding-bottom: 65px;
+      }
+      @media (max-width: 991.98px) and (min-width: 768px) {
+        column-gap: clamp(4.188rem, 2.962rem + 2.55vw, 4.545rem);
+        padding-bottom: 65px;
+      }
+      @media (max-width: 767.98px) and (min-width: 500px) {
+        column-gap: clamp(1.25rem, -4.231rem + 17.54vw, 4.188rem);
+        padding-bottom: 65px;
+      }
+      @media (max-width: 499.98px) {
+        padding-bottom: 35px;
+      }
+    }
+    &__column {
+      &:nth-child(1) .page__button:nth-child(1) {
+        animation: button-left 1.5s ease forwards 5s;
+        transform: translateX(-100%);
+      }
+      &:nth-child(1) .page__button:nth-child(2) {
+        animation: button-left 1.5s ease forwards 5s;
+        transform: translateX(-100%);
+        @media (max-width: 499.98px) {
+          transform: translateX(100%);
+          animation: button-right 1.5s ease forwards 5s;
+        }
+      }
+      &:nth-child(2) .page__button:nth-child(1) {
+        animation: button-right 1.5s ease forwards 5s;
+        transform: translateX(100%);
+        @media (max-width: 499.98px) {
+          transform: translateX(-100%);
+          animation: button-left 1.5s ease forwards 5s;
+        }
+      }
+      &:nth-child(2) .page__button:nth-child(2) {
+        animation: button-right 1.5s ease forwards 5s;
+        transform: translateX(100%);
+      }
+      display: flex;
+      flex-direction: column;
+      @media (min-width: 3840px) {
+        row-gap: 40px;
+      }
+      @media (max-width: 3839.98px) and (min-width: 1920px) {
+        row-gap: clamp(1.25rem, 1.04vw, 2.5rem);
+      }
+      @media (max-width: 1919.98px) and (min-width: 500px) {
+        row-gap: 20px;
+      }
+      @media (max-width: 499.98px) {
+        row-gap: 10px;
+      }
+    }
+    &__button {
+      background-color: transparent;
+      position: relative;
+      z-index: 7;
+      opacity: 0;
+      visibility: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../img/buttons/button-hover.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        opacity: 0;
+        visibility: hidden;
+        transition-duration: 0.3s;
+      }
+      @media (any-hover: hover) {
+        &:hover::before {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+      & img {
+        max-width: 100%;
+      }
+      & span {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        @media (min-width: 3840px) {
+          font-size: 60px;
+        }
+        @media (max-width: 3839.98px) and (min-width: 1920px) {
+          font-size: clamp(1.875rem, 1.56vw, 3.75rem);
+        }
+        @media (max-width: 1919.98px) and (min-width: 992px) {
+          font-size: clamp(1.704rem, 1.522rem + 0.29vw, 1.875rem);
+        }
+        @media (max-width: 991.98px) and (min-width: 768px) {
+          font-size: clamp(1.573rem, 1.12rem + 0.94vw, 1.704rem);
+        }
+        @media (max-width: 767.98px) and (min-width: 500px) {
+          font-size: clamp(1.094rem, -0.29rem + 4.43vw, 1.836rem);
+        }
+        @media (max-width: 499.98px) and (min-width: 320px) {
+          font-size: clamp(1.313rem, 0.368rem + 4.72vw, 1.844rem);
+        }
+      }
+    }
+    &__parallax {
+    }
+  }
+}
+
+.main-block {
+  .loaded & {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    &__person {
+      opacity: 0;
+      visibility: hidden;
+      animation: person 2s ease forwards 3s;
+      flex: 0 1 38.92%;
+      @media (min-width: 3840px) {
+        margin-bottom: 220px;
+      }
+      @media (max-width: 3839.98px) and (min-width: 2200px) {
+        margin-bottom: clamp(5rem, -3.75rem + 7.29vw, 13.75rem);
+      }
+      @media (max-width: 1919.98px) and (min-width: 992px) {
+        margin-bottom: calc(clamp(2.5rem, -0.172rem + 4.31vw, 5rem) - 30px);
+      }
+      @media (max-width: 991.98px) {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 50%;
+        padding-top: 250px;
+      }
+      @media (max-width: 767.98px) {
+        padding-top: 200px;
+      }
+      @media (max-width: 700px) {
+        width: 55%;
+      }
+      @media (max-width: 600px) {
+        width: 60%;
+      }
+      @media (max-width: 550px) {
+        width: 65%;
+      }
+      @media (max-width: 500px) {
+        width: 75%;
+        left: -20%;
+      }
+      @media (max-width: 450px) {
+        width: 85%;
+        left: -25%;
+      }
+      @media (max-width: 400px) {
+        width: 95%;
+        left: -30%;
+      }
+      & img {
+        max-width: 100%;
+      }
+    }
+    &__mirror {
+      opacity: 0;
+      visibility: hidden;
+      animation: mirror 2s ease forwards 4s;
+      flex: 0 1 34.09%;
+      align-self: flex-start;
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background-image: url("../img/main/options/man_01.png");
+        background-position: center;
+        background-size: cover;
+      }
+      @media (min-width: 3840px) {
+        margin-right: 106px;
+      }
+      @media (max-width: 3839.98px) and (min-width: 1920px) {
+        margin-right: calc(
+          clamp(3.125rem, -0.375rem + 2.92vw, 6.625rem) + 50px
+        );
+      }
+      @media (max-width: 2200px) and (min-width: 1920px) {
+        flex: 0 1 28%;
+      }
+
+      @media (max-width: 1919.98px) and (min-width: 992px) {
+        margin-right: calc(clamp(1.875rem, 0.539rem + 2.16vw, 3.125rem) + 20px);
+        flex: 0 1 28%;
+      }
+      @media (max-width: 991.98px) {
+        position: absolute;
+        z-index: 1;
+        width: 30%;
+        top: 0;
+        right: 15%;
+        margin-top: 180px;
+      }
+      @media (max-width: 767.98px) {
+        margin-top: 150px;
+      }
+      @media (max-width: 700px) {
+        width: 30%;
+      }
+      @media (max-width: 600px) {
+        width: 35%;
+        right: 10%;
+        margin-top: 140px;
+      }
+      @media (max-width: 550px) {
+        width: 35%;
+        right: 10%;
+      }
+      @media (max-width: 500px) {
+        width: 40%;
+        right: 10%;
+        margin-top: 135px;
+      }
+      @media (max-width: 450px) {
+        width: 40%;
+        right: 10%;
+      }
+      @media (max-width: 400px) {
+        width: 50%;
+        right: 15px;
+      }
+      & img {
+        max-width: 100%;
+      }
+    }
+    &__slider.swiper {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &__wrapper.swiper-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &__slide {
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("../img/main/mirror.png");
+        background-position: center;
+        background-size: cover;
+      }
+    }
+  }
+}
+
+.parallax {
+  .loaded & {
+    position: absolute;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &__item {
+    }
+    &__item--1 {
+      animation: smoke-1 2s ease forwards 1.5s;
+      position: absolute;
+      top: -105%;
+      left: -10%;
+      width: 120%;
+      height: 110%;
+      background-image: url("../img/parallax/smoke-up-1.png");
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+    }
+    &__item--2 {
+      animation: smoke-2 2s ease forwards 2s;
+      position: absolute;
+      top: -105%;
+      left: -10%;
+      width: 120%;
+      height: 110%;
+      background-image: url("../img/parallax/smoke-up-2.png");
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: cover;
+    }
+    &__item--3 {
+      animation: smoke-3 2s ease forwards 1.5s;
+      position: absolute;
+      bottom: -105%;
+      left: -10%;
+      width: 120%;
+      height: 110%;
+      background-image: url("../img/parallax/smoke-down-1.png");
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      background-size: cover;
+    }
+    &__item--4 {
+      animation: smoke-4 2s ease forwards 2s;
+      position: absolute;
+      bottom: -105%;
+      left: -10%;
+      width: 120%;
+      height: 110%;
+      background-image: url("../img/parallax/smoke-down-2.png");
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      background-size: cover;
+    }
+  }
+}
+@keyframes logo {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes person {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+@keyframes title {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes mirror {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes button-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes button-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes smoke-1 {
+  0% {
+    top: -105%;
+    left: -10%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    top: -5%;
+    left: -10%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes smoke-2 {
+  0% {
+    top: -105%;
+    left: -10%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    top: -5%;
+    left: -10%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes smoke-3 {
+  0% {
+    bottom: -105%;
+    left: -10%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    bottom: -5%;
+    left: -10%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes smoke-4 {
+  0% {
+    bottom: -105%;
+    left: -10%;
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    bottom: -5%;
+    left: -10%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
