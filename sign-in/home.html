@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Sign In</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="css/style.min.css?_v=20221229173818">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+			</div>
+		</header>
+		<main data-watch data-watch-once class="page">
+			<div class="page__box">
+				<div class="page__main-item main-item">
+					<div class="main-item__wrapper">
+						<form class="main-item__form main-item__form--sign-in form-signin" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+							<div class="form-signin__line">
+								<h3 class="form-signin__title">Sign In</h3>
+							</div>
+							<div class="form-signin__line">
+								<div class="form-signin__input-box form-signin__input-box--log-in">
+									<input id="username" required name="username" placeholder="Username" class="form-signin__input form-signin__input--log-in" type="text" />
+								</div>
+							</div>
+							<div class="form-signin__line">
+								<div class="form-signin__input-box form-signin__input-box--pass">
+									<input id="userpass" required name="userpass" placeholder="Password" class="form-signin__input form-signin__input--pass" type="password" />
+								</div>
+							</div>
+							<div class="form-signin__line">
+								<div class="form-signin__input-box form-signin__input-box--check">
+									<input id="user-agree" required name="user-agree" class="form-signin__input form-signin__input--check" type="checkbox" />
+									<label class="form-signin__label form-signin__label--check" for="user-agree">Remember me</label>
+								</div>
+								<a href="#" class="form-signin__forgot-pass">Forgot Password ?</a>
+							</div>
+							<div class="form-signin__line">
+								<button data-ripple="once" class="form-signin__button" type="submit">
+									Login
+								</button>
+							</div>
+							<div class="form-signin__line">
+								<div class="form-signin__text">Don’t Have an Account ?</div>
+								<button type="button" class="form-signin__sign-up">
+									Sign up
+								</button>
+							</div>
+						</form>
+						<form class="main-item__form main-item__form--sign-up form-signup" action="https://jsonplaceholder.typicode.com/posts" method="POST">
+							<div class="form-signup__line">
+								<h3 class="form-signup__title">Sign Up</h3>
+							</div>
+							<div class="form-signup__line">
+								<div class="form-signup__input-box form-signup__input-box--log-in">
+									<input id="username" required name="username" placeholder="Username" class="form-signup__input form-signup__input--log-in" type="text" />
+								</div>
+							</div>
+							<div class="form-signup__line">
+								<div class="form-signup__input-box form-signup__input-box--pass">
+									<input id="userpass" required name="userpass" placeholder="Password" class="form-signup__input form-signup__input--pass" type="password" />
+								</div>
+							</div>
+							<div class="form-signup__line">
+								<button data-ripple="once" class="form-signup__button form-signup__button--sign-up" type="submit">
+									Sign Up
+								</button>
+							</div>
+							<div class="form-signup__line">
+								<div class="form-signup__text">Already Have an Account ?</div>
+								<button type="button" class="form-signup__login">
+									Login
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="page__content">
+					<a href="#" class="page__logo">
+						<picture><source srcset="img/logo.webp" type="image/webp"><img src="img/logo.png" alt="Logo" /></picture>
+					</a>
+					<div class="page__text text-page">
+						<div class="text-page__star"></div>
+						<div class="text-page__text-left">
+							<span class="text-page__span text-page__span--1">Stories that brin</span>
+						</div>
+						<div class="text-page__text-right">
+							<span class="text-page__span text-page__span--2">g people together</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+			</div>
+		</footer>
+	</div>
+	<script src="js/app.min.js?_v=20221229173818"></script>
+</body>
+
+</html>
